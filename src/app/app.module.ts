@@ -14,9 +14,16 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
 import { MessagesDropdownMenuComponent } from './main/header/messages-dropdown-menu/messages-dropdown-menu.component';
 import { NotificationsDropdownMenuComponent } from './main/header/notifications-dropdown-menu/notifications-dropdown-menu.component';
+
+// + jhipster-module
+import './vendor';
+import { SharedModule } from 'app/shared/shared.module';
+import { CoreModule } from 'app/core/core.module';
+import { HomeModule } from './home/home.module';
+import { EntityModule } from './entities/entity.module';
 
 @NgModule({
   declarations: [
@@ -35,14 +42,18 @@ import { NotificationsDropdownMenuComponent } from './main/header/notifications-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      timeOut: 10000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true
-    })
+    // + jhipster
+    SharedModule,
+    CoreModule,
+    HomeModule,
+    EntityModule,
+    AppRoutingModule
+    // ToastrModule.forRoot({
+    //   timeOut: 10000,
+    //   positionClass: 'toast-bottom-right',
+    //   preventDuplicates: true
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]
